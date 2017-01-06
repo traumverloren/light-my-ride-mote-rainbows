@@ -26,7 +26,7 @@ try:
         brightness = 0
         for h in range(1000):
             for channel in range(4):
-                for pixel in range(mote.get_pixel_count(channel + 1) - 1, 0, -1):
+                for pixel in range(mote.get_pixel_count(channel + 1)):
                     hue = (h + (channel * num_pixels * 4) + (pixel * 4)) % 360
                     r, g, b = [int(c * brightness) for c in hsv_to_rgb(hue/360.0, 1.0, 0.02)]
                     mote.set_pixel(channel + 1, pixel, r, g, b)
